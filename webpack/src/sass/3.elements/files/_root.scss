@@ -1,0 +1,14 @@
+:root,%root{
+  --scale:1;
+  --fs-value: #{$gobal_font_size};
+  --f-linehight-value: #{$gobal_lineheight};
+  --col-gap:1.75rem;
+  --row-gap:1.75rem;
+  --body-h: auto;
+  --footer-h: 0px;
+  --header-h: 0px;
+  --r-overlay-element-bg-color:255,255,255;
+  @include root_color_variables();
+  --bg__grad--persian-green--tiber: linear-gradient(50deg, #{color_var('persian-green')} 35%, #{color_var('tiber')} 127%);
+  --bg__grad--card: linear-gradient(150deg, rgba(0, 170, 166, 0.13)7.37%, rgba(88, 181, 179, 0.22)43.5%, rgba(255, 255, 255, 0.30)97.59%);
+}

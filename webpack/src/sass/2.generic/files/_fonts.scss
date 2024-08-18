@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'ABC Modern';
+    src: url('#{$FONT_FILE_PATH}/ABCModernLight.woff2') format('woff2'),
+        url('#{$FONT_FILE_PATH}/ABCModernLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ABC Modern';
+    src: url('#{$FONT_FILE_PATH}/ABCModernBold.woff2') format('woff2'),
+        url('#{$FONT_FILE_PATH}/ABCModernBold.woff') format('woff');
+    font-weight:normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'ABC Modern';
+    src: url('#{$FONT_FILE_PATH}/ABCModernBold.woff2') format('woff2'),
+        url('#{$FONT_FILE_PATH}/ABCModernBold.woff') format('woff');
+    font-weight:600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'ABC Modern';
+    src: url('#{$FONT_FILE_PATH}/ABCModernBold.woff2') format('woff2'),
+        url('#{$FONT_FILE_PATH}/ABCModernBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

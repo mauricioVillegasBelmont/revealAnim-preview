@@ -1,0 +1,167 @@
+@use "sass:map";
+.py--fit,%py--fit{
+  padding-top: calc(var(--header-h) + .25rem);
+  padding-bottom: calc(var(--header-h) + .25rem);
+}
+%asideMenuConfig{
+
+}
+
+
+.main{
+  &__header{
+    justify-content: space-between;
+    background-color: rgba(0,0,0,.5);
+    z-index: map.get($zindex_values, 'fixed');
+  }
+  &__menu{
+    @extend %overflow-scroll;
+    position: fixed;
+    height: calc( 100dvh - var(--header-h));
+    inset: auto auto 0 0;
+    margin-top: auto;
+    z-index: map.get($zindex_values, 'fixed');
+    width: 100dvw;
+    z-index: map.get($zindex_values, 'fixed');
+    display: none;
+    &.opened{
+      display: block;
+    }
+    @include media-breakpoint-up(lg){
+      max-width: 500px;
+      padding-left: 88px !important;
+      z-index: #{map.get($zindex_values, 'fixed') - 1};
+    }
+    &--nav{
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      height: 100%;
+    }
+    &--item{
+      a{
+        display: block;
+      }
+    }
+
+  }
+  &__body{
+    // @extend %py--fit;
+    // min-height: calc( 100vh - (var(--header-h) + var(--footer-h)) );
+    // @include media-breakpoint-up(lg){
+    //   padding-left: calc( 88px + .5rem);
+    // }
+
+  }
+  &__footer{
+    @include media-breakpoint-up(lg){
+      padding-left: calc( 88px + .5rem);
+    }
+  }
+}
+
+.aside__opener{
+  position: fixed;
+  padding: 0 .75rem;
+  width: 88px;
+
+  overflow: hidden;
+  margin-top: var(--header-h);
+  z-index: map.get($zindex_values, 'fixed');
+  @include media-breakpoint-up(lg){
+    inset: auto auto 0 0;
+    border-right: 1px solid color_var('eastern-blue');
+    background-color: color_var('black');
+    height: calc( 100dvh - var(--header-h));
+  }
+
+  svg .animated{
+    // animation: name duration | timing-function | delay | iteration-count | direction | fill-mode | play-state;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-direction: normal;
+  }
+  [data-action="open"]{
+    // @extend %animations;
+    svg .animated{
+      &.hamburger_bottom {
+        animation-name: hamburger_bottom-open;
+      }
+      &.hamburger_middle {
+        animation-name: hamburger_middle-open;
+      }
+      &.hamburger_top {
+        animation-name: hamburger_top-open;
+      }
+    }
+  }
+  [data-action="close"]{
+    svg .animated{
+    &.hamburger_bottom {
+      animation-name: hamburger_bottom-close;
+    }
+    &.hamburger_middle {
+      animation-name: hamburger_middle-close;
+    }
+    &.hamburger_top {
+      animation-name: hamburger_top-close;
+    }
+    }
+  }
+}
+
+
+
+
+@keyframes hamburger_bottom-close {
+  0% {
+    transform: translate(18px,20px) rotate(0deg);
+  }
+  100% {
+    transform: translate(15px, 15px) rotate(-45deg);
+  }
+}
+@keyframes hamburger_bottom-open {
+  0% {
+    transform: translate(15px, 15px) rotate(-45deg);
+  }
+  100% {
+    transform: translate(18px,20px) rotate(0deg);
+  }
+}
+
+@keyframes hamburger_middle-close {
+  0% {
+    transform: translate(12px,15px) scaleX(1);
+  }
+  100% {
+    transform: translate(15px,15px) scaleX(0);
+  }
+}
+@keyframes hamburger_middle-open {
+  0% {
+    transform: translate(15px,15px) scaleX(0);
+  }
+  100% {
+    transform: translate(12px,15px) scaleX(1);
+  }
+}
+
+@keyframes hamburger_top-close {
+  0% {
+    transform: translate(15px,10px) rotate(0deg);
+  }
+  100% {
+    transform: translate(15px,15px) rotate(45deg);
+  }
+}
+@keyframes hamburger_top-open {
+  0% {
+    transform: translate(15px,15px) rotate(45deg);
+  }
+  100% {
+    transform: translate(15px,10px) rotate(0deg);
+  }
+}

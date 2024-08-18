@@ -1,0 +1,196 @@
+
+@include font_family_generator();
+
+@include texttags-default-setup(){
+  @extend %font-format;
+}
+
+.h1{
+  --fs-value: 2.5rem;
+  @include media-breakpoint-up(lg){
+    --fs-value: 3.8125rem;
+  }
+}
+.h2{
+  --fs-value:  2.1875rem;
+  @include media-breakpoint-up(lg){
+    --fs-value: 3.0625rem;
+  }
+}
+.h3{
+  --fs-value: 1.875rem;
+  @include media-breakpoint-up(lg){
+    --fs-value:  2.4375rem;
+  }
+}
+.h4{
+  --fs-value: 1.5625rem;
+  @include media-breakpoint-up(lg){
+    --fs-value: 1.9375rem;
+  }
+}
+.h5{
+  --fs-value: 1.4375rem;
+  @include media-breakpoint-up(lg){
+    --fs-value: 1.5625rem;
+  }
+}
+.h6{
+  --fs-value: 1.25rem;
+  @include media-breakpoint-up(lg){
+    --fs-value: 1.25rem;
+  }
+}
+
+// _font_clamp_calc($min, $max, $max_b_key: lg, $min_b_key: xs)
+.fs__display--1{
+  --fs-value: #{_font_clamp_calc(3rem, 15rem, xx)};
+}
+.fs__display--logo-1{
+  --fs-value: #{_font_clamp_calc(3rem, 5rem, lg)};
+}
+.fs__footer{
+  --fs-value: #{_font_clamp_calc(.5rem, .75rem)};
+}
+
+.fs--extralarge{
+  --fs-value: calc(#{$gobal_font_size} * 1.75);
+}
+.fs--large{
+  --fs-value: calc(#{$gobal_font_size} * 1.5);
+}
+.fs--medium{
+  --fs-value: calc(#{$gobal_font_size} * 1.25);
+}
+.text,.fs--normal{
+  --fs-value: #{$gobal_font_size};
+}
+small,.fs--small{
+  --fs-value: calc(#{$gobal_font_size} * .8);
+}
+.fs--extrasmall{
+  --fs-value: calc(#{$gobal_font_size} * .64);
+}
+
+
+@include  oocss_extend_generator('fw', '', (), $font_weights, 'font-weight', false, $font_weight_utilities);
+@include font_weight_defaults();
+
+
+@include  oocss_extend_generator('fs', '', (), $font_styles, 'font-style', false, true);
+em{
+  @extend %fs--italic;
+}
+
+
+
+u,ins,
+.txt--underline,.hover-txt--underline:hover{
+  text-decoration: underline;
+}
+.box--underline{
+  border: 0;
+  border-bottom: 1px solid;
+}
+.hover-box--underline{
+  border: 0;
+  @include hover(){
+    border-bottom: 1px solid;
+  }
+}
+del,strike, s,
+.txt--strike{
+  text-decoration: line-through;
+}
+
+
+%perfect_square_char{
+  width: calc(var(--fs-value) * var(--scale));
+  height: calc(var(--fs-value) * var(--scale));
+}
+%icon-font{
+  speak: never;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+%icon-list{
+  li::before{
+    @extend %icon-font;
+    font-size: calc(var(--fs-value) * var(--scale));
+    margin-right: 0.5rem;
+  }
+}
+menu,ul,ol{
+  &.inset{
+    list-style-position: outside;
+  }
+  &.outset{
+    list-style-position: inside;
+  }
+  &.tick{
+    @extend %icon-list;
+    li::before{
+      content: quote(#{$icon-check-mark});
+    }
+  }
+  &.chevron{
+    @extend %icon-list;
+    li::before{
+      content: quote(#{$icon-chevron-right});
+    }
+  }
+}
+.inline-img{
+  display: inline-block;
+  object-fit: contain;
+  max-height: calc(var(--fs-value) * var(--scale));
+}
+
+
+@include selector_extendible_generator( 'text','',('break')){
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+.wrapper__content{
+  &.safe-read{
+    @extend %wrapper__readable--45;
+  }
+  p:not(:last-child){
+    margin-bottom: calc(var(--fs-value) * 1.25);
+  }
+  li:not(:last-child){
+    margin-bottom: calc(var(--fs-value) * 1.25);
+  }
+  a{
+    @extend %text--break;
+  }
+}
+a[href^="http://"],
+a[href^="https://"],
+a[target="_blank"]{
+  @extend %text--break;
+}
+
+
+
+@include selector_content_generator('text','overflow','','%'){
+  white-space: nowrap;
+  overflow: hidden;
+}
+.text__overflow--elipsis{
+  @extend %text__overflow;
+  text-overflow: ellipsis;
+}
+.text__overflow--clip{
+  @extend %text__overflow;
+  text-overflow: clip;
+}
+
+
+
+@include  oocss_extend_generator_full('text', '', (), $text_align_array, 'text-align', false, $text_align_utilities);

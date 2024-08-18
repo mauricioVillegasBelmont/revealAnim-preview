@@ -1,0 +1,170 @@
+@include selector_extendible_generator('btn','',()){
+  user-select: none;
+  cursor: pointer;
+  @include min_accesible_element($accessible_use_coarse);
+  @include disabled(){
+    cursor: auto;
+    pointer-events: none;
+  };
+  @include focus-visible(){
+    outline:0;
+  }
+  &__icon{
+    @extend %btn;
+    border: 0;
+    background-color: transparent;
+    &::before{
+      font-size: inherit;
+    }
+    .icon{
+      width: auto;
+      pointer-events: none;
+    }
+    &--form{
+      @extend %btn;
+      @extend .btn__icon;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      padding: 0.25rem;
+      background-color: color_var('white-25');
+      border: 2px solid;
+      border-color: var(--c-mariner);
+      min-width: 45px;
+      .icon{
+        width: auto;
+        pointer-events: none;
+      }
+    }
+  }
+  &__menu{
+    @extend %btn;
+    @extend .btn__icon;
+    .icon{
+      max-width: 2.1875rem;
+    }
+    &--close{
+      border: 0;
+      @extend %btn;
+    }
+  }
+  &__cta{
+    @extend %btn;
+    @extend %d--inline-flex;
+    padding: .75rem 2.75rem;
+    border-radius: 500px;
+    background-image: var(--bg__grad--persian-green--tiber);
+    border: 0;
+    outline: 3px solid color_var('spray');
+
+    @include disabled(){
+      outline-color: transparent;
+      background-color: color_var('grey');
+    }
+    @include hover(){
+      outline-color: transparent;
+      box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+  &__tab{
+    padding: .5rem .75rem;
+    border-radius: .5rem .5rem 0 0;
+    @include hover(){
+      background-color: rgba(0, 0, 0, 0.10);
+    }
+    &.ui-tabs-active,&.active{
+      background-color: color_var('white');
+      border-bottom: 2px solid color_var('dark');
+    }
+    &group{
+      top: 0;
+    }
+  }
+  &__icon{
+    background-color: transparent;
+    &::before{
+      font-size: inherit;
+    }
+  }
+}
+%component__decorated{
+  &::after,&::before{
+    @extend %icon-font;
+    @extend %d--inline-flex;
+    font-size: calc(var(--fs-value) * 1.5);
+    align-items: baseline;
+    line-height: .5;
+  }
+  &::before{
+    margin-right: calc(var(--fs-value) *.75);
+  }
+  &::after{
+    margin-left: calc(var(--fs-value) *.75);
+  }
+}
+.btn__chevron{
+  &--back{
+    @extend %component__decorated;
+    &::before{
+      content: $icon-chevron-left;
+    }
+  }
+  &--next{
+    @extend %component__decorated;
+    &::after{
+      content: $icon-chevron-right;
+    }
+  }
+}
+.btn__arrow{
+  &--back{
+    @extend %component__decorated;
+    &::before{
+      content: $icon-arrow-left;
+    }
+  }
+  &--next{
+    @extend %component__decorated;
+    &::after{
+      content: $icon-arrow-right;
+    }
+  }
+}
+
+
+
+
+
+
+// .slick-dots{
+//   // @extend %display-flex;
+//   // @extend %justify-center;
+//   padding-top: .5rem;
+//   li[role="presentation"]{
+//     // @extend %display-flex;
+//     // @extend %align-center;
+//     padding: 0 .175rem;
+//     button{
+//       cursor: pointer;
+//       background-color: color_var('gray');
+//       overflow: hidden;
+//       color: transparent;
+//       padding: .375rem;
+//       border-radius: .375rem;
+//       font-size:0;
+//       border: 0;
+//       transition: padding 500ms ease-out, background-color 500ms ease-out;
+//     }
+//     &.slick-active button{
+//       padding: .375rem .75rem;
+//     }
+//   }
+// }
+// .slick-control{
+//   --fs-value: 2rem;
+//   font-size: var(--fs-value);
+//   width: var(--fs-value);
+//   z-index: 1;
+//   @include media-breakpoint-up(lg){
+//     --fs-value: #{px_to_rem(40)};
+//   }
+// }

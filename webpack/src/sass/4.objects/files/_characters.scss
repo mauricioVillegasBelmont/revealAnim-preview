@@ -1,0 +1,175 @@
+.frame{
+  overflow: hidden;
+  border-radius: 45px;
+  border: 2px solid color_var('spray');
+}
+%product_bg{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.products--group{
+  width: 100%;
+  height: 50vh;
+  margin: 0 auto;
+  @include media-breakpoint-up(lg){
+    max-width: 70vw;
+    height: 60vh;
+  }
+  &.home-s1{
+    height: 25vh;
+    @include media-breakpoint-up(lg){
+      height: 50vh;
+    }
+  }
+
+  .product{
+    @extend %product_bg;
+    position: absolute;
+    max-height: 100%;
+    inset: 0;
+    img{
+      visibility: hidden;
+      opacity: 0;
+    }
+    &--tv{
+      @extend .product;
+      aspect-ratio: 29 / 26;
+      @include site_background_image('/products/product__tv.png');
+
+      &.home-s1{
+        max-width: 45%;
+        margin-left: 13%;
+        margin-bottom: 5%;
+      }
+      &.home-s2,&.home-s13{
+        max-width: 60%;
+        margin-left: 0;
+        margin-bottom: 10%;
+        @include media-breakpoint-up(lg){
+          max-width: 35%;
+          margin-bottom: 5%;
+          margin-left: 10%;
+        }
+      }
+
+    }
+    &--frigo{
+      @extend .product;
+      aspect-ratio: 1 / 2;
+      @include site_background_image('/products/product__frigo.png');
+      &.home-s1{
+        margin-right: 20%;
+        @include media-breakpoint-up(lg){
+          margin-right: 0;
+        }
+      }
+      &.home-s2,&.home-s13{
+        margin-right: 0;
+        @include media-breakpoint-up(lg){
+          margin-right: 10%;
+        }
+      }
+
+    }
+    &--air{
+      @extend .product;
+      aspect-ratio: 21 / 8;
+      @include site_background_image('/products/product__air.png');
+      &.home-s1{
+        max-width: 35%;
+        margin-bottom: 0;
+      }
+      &.home-s2,&.home-s13{
+        max-width: 50%;
+        margin-bottom: 0;
+        @include media-breakpoint-up(lg){
+          max-width: 35%;
+        }
+      }
+
+    }
+  }
+}
+.ball{
+  overflow: visible;
+  position: relative;
+  width: 120px;
+  @include media-breakpoint-up(lg){
+    width: 200px;
+  }
+  @include aspect-ratio(1,1);
+  &::after{
+    @extend %product_bg;
+    position: absolute;
+    inset: 0;
+    content: '';
+    width: 100%;
+    aspect-ratio: 1;
+    @include site_background_image('/products/ball.png');
+  }
+  &.transition{
+    position: absolute;
+    width: 110vh;
+    top: -100vw;
+    left: -40vh;
+
+    @include media-breakpoint-up(lg){
+      width: 200vw;
+      top: -100vw;
+      left: -50%;
+    }
+  }
+  &.column_ball{
+
+  }
+  &.title_ball{
+    position: absolute;
+    top: calc(var(--fs-value)* -1.25);
+    right: 0;
+    left: 0;
+    margin: auto;
+    max-width: calc(var(--fs-value)* 2);
+    @include media-breakpoint-up(lg){
+      top: calc(var(--fs-value)* -0.75);
+      right: 10vw;
+      left: auto;
+    }
+  }
+  &.section_hold_ball{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    inset: 95% 0 0;
+    @include media-breakpoint-up(lg){
+      width: 60vw;
+      height: 60vw;
+      inset: 65vh 0 0;
+    }
+  }
+  &.home-s2{
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: -120px;
+    @include media-breakpoint-up(lg){
+      bottom: -160px;
+    }
+  }
+  &.home-s2,&.home-s13{
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: -120px;
+    @include media-breakpoint-up(lg){
+      bottom: -160px;
+    }
+  }
+}

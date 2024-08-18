@@ -1,0 +1,36 @@
+.card{
+  @extend .row;
+  @extend .col--gap;
+  @extend .row--gap;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  border: 2px solid color_var('spray');
+  min-height: 120px;
+  max-height: 20vh;
+  @include media-breakpoint-up(lg){
+    height: 300px;
+  }
+  &.dark{
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  &.grad{
+    background-image: var(--bg__grad--card);
+  }
+  .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 25%;
+    --fs-value:2.75rem;
+  }
+  .content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media-breakpoint-up(lg){
+      max-width: 75%;
+    }
+  }
+}

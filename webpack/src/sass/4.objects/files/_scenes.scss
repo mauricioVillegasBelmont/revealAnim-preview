@@ -1,0 +1,13 @@
+.scene{
+//   outline: 1px solid #f9f;
+//   min-height:calc(100vh - (var(--header-h) + var(--footer-h)) - .5rem);
+
+  &__section{
+    @extend %py--fit;
+    // outline: 1px solid #fff;
+    @include media-breakpoint-up(lg){
+      padding-left: calc( 88px + .5rem);
+    }
+  }
+
+}
