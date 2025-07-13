@@ -1,0 +1,96 @@
+.reveal {
+  &.home-page {
+    .slide-background-content {
+      top: 0;
+      left: 0;
+      background-image: site_background_image('/bg/bg__home--sm.webp');
+
+      @include media-breakpoint-up(lg) {
+        max-width: calc(100vw - 88px);
+        left: 88px;
+        background-image: site_background_image('/bg/bg__home--lg.webp');
+      }
+    }
+
+    .grad_black-bacground {
+      .slide-background-content {
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.8) 70%), site_background_image('/bg/bg__home--sm.webp');
+        background-position: 50% 50% !important;
+        background-size: cover !important;
+
+        @include media-breakpoint-up(lg) {
+          background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.8) 70%), site_background_image('/bg/bg__home--lg.webp');
+        }
+      }
+    }
+  }
+
+  &.mecanica-page {
+    .slide-background-content {
+      top: 0;
+      left: 0;
+      background-position: top center;
+      background-image: site_background_image('/bg/bg__bases--sm.webp');
+
+      @include media-breakpoint-up(lg) {
+        max-width: calc(100vw - 88px);
+        left: 88px;
+        background-image: site_background_image('/bg/bg__bases--lg.webp');
+        background-size: 100% auto;
+      }
+    }
+  }
+
+
+
+  .darker-background {
+    .slide-background-content {
+      filter: brightness(0.5);
+    }
+  }
+}
+
+.simple__page {
+  @extend %pt--fit;
+  position: absolute;
+  inset: 0;
+  // height: 100dvh;
+  width: 100dvw;
+  max-height: 100dvh;
+
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  @include media-breakpoint-up(lg) {
+    width: calc(100dvw - 90px);
+    max-width: calc(100dvw - 90px);
+    left: 88px;
+  }
+
+  &.premios-page {
+    background-image: site_background_image('/bg/bg__premios--sm.webp');
+
+    @include media-breakpoint-up(lg) {
+      background-image: site_background_image('/bg/bg__premios--lg.webp');
+      background-size: 100% auto;
+    }
+  }
+
+  &.bases-page {
+    background-image: site_background_image('/bg/bg__bases--sm.webp');
+
+    @include media-breakpoint-up(lg) {
+      background-image: site_background_image('/bg/bg__bases--lg.webp');
+      background-size: 100% auto;
+    }
+  }
+
+  &.genral-page {
+    background-image: site_background_image('/bg/bg__generla--sm.webp');
+
+    @include media-breakpoint-up(lg) {
+      background-image: site_background_image('/bg/bg__generla--lg.webp');
+    }
+  }
+}

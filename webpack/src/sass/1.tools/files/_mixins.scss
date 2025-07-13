@@ -28,7 +28,7 @@
 @import 'mixins/position';
 //----- @include qq-equal( $number );  @include qq-greater( $number );  @include qq-less( $number );
 @import 'mixins/quantity-query';
-//------- @include retina-image("my-image2x.png", 1000px, 500px);
+//------- @include retina-image("my-image2x.webp", 1000px, 500px);
 @import 'mixins/retina-images';
 //------- color_var("color-key");
 @import 'mixins/states';

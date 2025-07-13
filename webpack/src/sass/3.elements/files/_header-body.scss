@@ -1,10 +1,18 @@
 @use "sass:map";
-.py--fit,%py--fit{
+.py--fit,
+%py--fit {
   padding-top: calc(var(--header-h) + .25rem);
   padding-bottom: calc(var(--header-h) + .25rem);
 }
-%asideMenuConfig{
 
+.pt--fit,
+%pt--fit {
+  padding-top: calc(var(--header-h) + .25rem);
+}
+
+.pb--fit,
+%pb--fit {
+  padding-bottom: calc(var(--header-h) + .25rem);
 }
 
 

@@ -35,7 +35,7 @@
     &--tv{
       @extend .product;
       aspect-ratio: 29 / 26;
-      @include site_background_image('/products/product__tv.png');
+      @include site_background_image('/products/product__tv.webp');
 
       &.home-s1{
         max-width: 45%;
@@ -57,7 +57,7 @@
     &--frigo{
       @extend .product;
       aspect-ratio: 1 / 2;
-      @include site_background_image('/products/product__frigo.png');
+      @include site_background_image('/products/product__frigo.webp');
       &.home-s1{
         margin-right: 20%;
         @include media-breakpoint-up(lg){
@@ -75,7 +75,7 @@
     &--air{
       @extend .product;
       aspect-ratio: 21 / 8;
-      @include site_background_image('/products/product__air.png');
+      @include site_background_image('/products/product__air.webp');
       &.home-s1{
         max-width: 35%;
         margin-bottom: 0;
@@ -106,7 +106,7 @@
     content: '';
     width: 100%;
     aspect-ratio: 1;
-    @include site_background_image('/products/ball.png');
+    @include site_background_image('/products/ball.webp');
   }
   &.transition{
     position: absolute;

@@ -1,7 +1,7 @@
 import Reveal from "reveal.js";
 import Pushbar from "./main/pushbarMenu";
 
-import animejsPlugin from "./main/reveal-animejs-plugin";
+
 import PageHelpers from "./main/utils/pageHelpers"
 
 import { SliderFactory } from "./main/SliderFactory";
@@ -22,7 +22,7 @@ const homeSlider = {
   }
 };
 const slider = SliderFactory("#home__mecanica_slider", homeSlider);
-const menu = new Pushbar({});
+new Pushbar({});
 
 
 
@@ -79,7 +79,7 @@ presentation.initialize({
   scrollSnap: "mandatory", // - false: - proximity - mandatory
 });
 
-presentation.on("slidechanged", (event) => {
+presentation.on("slidechanged", () => {
   slider.update();
   return;
 });

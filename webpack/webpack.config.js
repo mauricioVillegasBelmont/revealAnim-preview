@@ -8,7 +8,7 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  watch: true,
+  watch: false,
   watchOptions: {
     ignored: /node_modules/,
     poll: 500, // Check for changes every second
